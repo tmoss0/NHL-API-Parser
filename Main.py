@@ -173,7 +173,9 @@ def getRoster(link):
 	# Adjust number of teams depending on what year is queried
 	numberOfTeams = 31	
 	year = int(year)
-	if(year >= 2018):
+	if(year >= 2021):
+		numberOfTeams = 32
+	else if(year >= 2018 and year < 2021):
 		numberOfTeams = 31
 	elif(year >= 2000 and year < 2017):
 		numberOfTeams = 30
