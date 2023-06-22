@@ -171,39 +171,8 @@ def getRoster(link):
 	shortenedSearch = json_data["drafts"]
 
 	# Adjust number of teams depending on what year is queried
-	numberOfTeams = 31	
 	year = int(year)
-	if(year >= 2021):
-		numberOfTeams = 32
-	elif(year >= 2018 and year < 2021):
-		numberOfTeams = 31
-	elif(year >= 2000 and year < 2017):
-		numberOfTeams = 30
-	elif(year >= 1999 and year < 2000):
-		numberOfTeams = 28
-	elif(year >= 1998 and year < 1999):
-		numberOfTeams = 27
-	elif(year >= 1993 and year < 1998):
-		numberOfTeams = 26
-	elif(year >= 1992 and year < 1993):
-		numberOfTeams = 24
-	elif(year >= 1991 and year < 1992):
-		numberOfTeams = 22
-	elif(year >= 1979 and year < 1991):
-		numberOfTeams = 21
-	elif(year >= 1978 and year < 1979):
-		numberOfTeams = 17
-	elif(year >= 1974 and year < 1978):
-		numberOfTeams = 18
-	elif(year >= 1972 and year < 1974):
-		numberOfTeams = 16
-	elif(year >= 1970 and year < 1972):
-		numberOfTeams = 14
-	elif(year >= 1967 and year < 1970):
-		numberOfTeams = 12
-	elif(year >= 1942 and year < 1967):
-		numberOfTeams = 6
-	
+	numberOfTeams = getNumberOfTeams(year)
 
 	# Determine which year due to fluctuations in number of draft rounds
 	if(year >= 2005):
@@ -278,37 +247,8 @@ def getDraft(link):
 	shortenedSearch = json_data["drafts"]
 
 	# Adjust number of teams depending on what year is queried
-	numberOfTeams = 31	
 	year = int(year)
-	if(year >= 2018):
-		numberOfTeams = 31
-	elif(year >= 2000 and year < 2017):
-		numberOfTeams = 30
-	elif(year >= 1999 and year < 2000):
-		numberOfTeams = 28
-	elif(year >= 1998 and year < 1999):
-		numberOfTeams = 27
-	elif(year >= 1993 and year < 1998):
-		numberOfTeams = 26
-	elif(year >= 1992 and year < 1993):
-		numberOfTeams = 24
-	elif(year >= 1991 and year < 1992):
-		numberOfTeams = 22
-	elif(year >= 1979 and year < 1991):
-		numberOfTeams = 21
-	elif(year >= 1978 and year < 1979):
-		numberOfTeams = 17
-	elif(year >= 1974 and year < 1978):
-		numberOfTeams = 18
-	elif(year >= 1972 and year < 1974):
-		numberOfTeams = 16
-	elif(year >= 1970 and year < 1972):
-		numberOfTeams = 14
-	elif(year >= 1967 and year < 1970):
-		numberOfTeams = 12
-	elif(year >= 1942 and year < 1967):
-		numberOfTeams = 6
-	
+	numberOfTeams = getNumberOfTeams(year)
 
 	# Determine which year due to fluctuations in number of draft rounds
 	if(year >= 2005):
@@ -497,6 +437,40 @@ def getTeamList(json_data):
 	print("Please type the number associated with a team to view more information\n")
 	for item in json_data["teams"]:
 		teamsList.append(item["name"])
+
+def getNumberOfTeams(year):
+	if(year >= 2021):
+		numberOfTeams = 32
+	elif(year >= 2018 and year < 2021):
+		numberOfTeams = 31
+	elif(year >= 2000 and year < 2017):
+		numberOfTeams = 30
+	elif(year >= 1999 and year < 2000):
+		numberOfTeams = 28
+	elif(year >= 1998 and year < 1999):
+		numberOfTeams = 27
+	elif(year >= 1993 and year < 1998):
+		numberOfTeams = 26
+	elif(year >= 1992 and year < 1993):
+		numberOfTeams = 24
+	elif(year >= 1991 and year < 1992):
+		numberOfTeams = 22
+	elif(year >= 1979 and year < 1991):
+		numberOfTeams = 21
+	elif(year >= 1978 and year < 1979):
+		numberOfTeams = 17
+	elif(year >= 1974 and year < 1978):
+		numberOfTeams = 18
+	elif(year >= 1972 and year < 1974):
+		numberOfTeams = 16
+	elif(year >= 1970 and year < 1972):
+		numberOfTeams = 14
+	elif(year >= 1967 and year < 1970):
+		numberOfTeams = 12
+	else:
+		numberOfTeams = 6
+	return numberOfTeams
+	
 
 # UI divider
 def divider():
